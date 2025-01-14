@@ -61,7 +61,7 @@ O desafio é desenvolver um programa Python capaz de ler esse arquivo e calcular
 
 ---
 
-Esquema do projeto: [app.excalidraw.com](https://link.excalidraw.com/l/8pvW6zbNUnD/9zZctm3OR9f)
+Esquema do projeto: [app.excalidraw.com]([https://link.excalidraw.com/l/8pvW6zbNUnD/9zZctm3OR9f](https://link.excalidraw.com/l/8pvW6zbNUnD/AOSRHr9dKWd))
 
 ---
 
