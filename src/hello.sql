@@ -1,0 +1,2 @@
+SELECT 'hello' as message;
+

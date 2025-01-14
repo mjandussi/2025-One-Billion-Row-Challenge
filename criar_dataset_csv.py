@@ -57,5 +57,5 @@ def gerar_dados_teste(num_registros):
 
 
 if __name__ == "__main__":
-    num_registros = 100_000_000  # Número de registros parametrizado
+    num_registros = 1_000_000_000  # Número de registros parametrizado
     gerar_dados_teste(num_registros)
