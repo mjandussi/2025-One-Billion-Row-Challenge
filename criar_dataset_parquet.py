@@ -82,5 +82,5 @@ def salvar_parquet(lote_dados, arquivo_saida):
 
 
 if __name__ == "__main__":
-    num_registros = 1_000_000_000  # Número de registros parametrizado
+    num_registros = 150_000_000  # Número de registros parametrizado
     gerar_dados_teste(num_registros)

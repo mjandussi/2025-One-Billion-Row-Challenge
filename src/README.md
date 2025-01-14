@@ -117,10 +117,89 @@ COPY meudb.usuarios TO 'usuarios.csv' WITH (HEADER, DELIMITER ',');
 CREATE TABLE meudb.novos_usuarios AS SELECT * FROM read_csv_auto('usuarios.csv');
 ```
 
-🔹 **Ler arquivos Parquet diretamente:**  
+🔹 **Salvando arquivos Parquet diretamente:**  
 ```sql
-SELECT * FROM read_parquet('dados.parquet') LIMIT 10;
+COPY meudb.usuarios TO 'usuarios.parquet' (FORMAT 'parquet');
 ```
+
+```sql
+CREATE TABLE meudb.novos_usuarios AS SELECT * FROM read_parquet('usuarios.parquet');
+```
+
+🔹 **Salvando arquivos JSON diretamente:**  
+```sql
+COPY meudb.usuarios TO 'usuarios.json' (FORMAT 'json');
+```
+
+```sql
+CREATE TABLE meudb.novos_usuarios AS SELECT * FROM read_json('usuarios.json');
+```
+
+Para **ler um banco de dados DuckDB** e visualizar suas tabelas, siga os comandos abaixo.
+
+---
+
+## **1️⃣ Conectar ao Banco DuckDB**
+Se você salvou o banco de dados em um arquivo (ex: `meudb.duckdb`), primeiro **anexe** o banco ao DuckDB:
+```sql
+ATTACH 'meudb.duckdb' AS meudb;
+```
+Isso carrega o banco de dados **persistente**.
+
+Se quiser apenas usar o banco **em memória**, ignore esse passo.
+
+---
+
+## **2️⃣ Ver Todas as Tabelas no Banco**
+Para listar todas as tabelas existentes no banco DuckDB:
+```sql
+SHOW TABLES;
+```
+Isso mostrará todas as tabelas disponíveis no banco **atual**.
+
+Se o banco está **anexado** (`ATTACH`), e você quer listar as tabelas dentro dele, rode:
+```sql
+SHOW TABLES FROM meudb;
+```
+
+---
+
+## **3️⃣ Ver Estrutura de uma Tabela**
+Se quiser verificar a estrutura (schema) de uma tabela específica:
+```sql
+DESCRIBE meudb.usuarios;
+```
+
+Ou, para obter mais detalhes:
+```sql
+PRAGMA table_info('meudb.usuarios');
+```
+
+---
+
+## **4️⃣ Consultar os Dados de uma Tabela**
+Para visualizar os dados de uma tabela:
+```sql
+SELECT * FROM meudb.usuarios LIMIT 10;
+```
+
+Se quiser contar quantos registros existem:
+```sql
+SELECT COUNT(*) FROM meudb.usuarios;
+```
+
+---
+
+## **🔥 Conclusão**
+| **Comando** | **Descrição** |
+|------------|-------------|
+| `ATTACH 'meudb.duckdb' AS meudb;` | Conectar um banco de dados DuckDB |
+| `DESCRIBE meudb.usuarios;` | Mostrar estrutura da tabela |
+| `PRAGMA table_info('meudb.usuarios');` | Mostrar detalhes da tabela |
+| `SELECT * FROM meudb.usuarios LIMIT 10;` | Consultar os primeiros registros |
+| `SELECT COUNT(*) FROM meudb.usuarios;` | Contar registros da tabela |
+
+Agora você pode **ler e explorar qualquer banco DuckDB**! 🚀🔥
 
 ---
 
