@@ -6,7 +6,7 @@
     <em>Nossa missão é fornecer o melhor ensino em engenharia de dados</em>
 </p>
 
-Bem-vindo a **Jornada de Dados**
+Bem-vindo a **Jornada de Dados (aula youtube)**
 
 ---
 
